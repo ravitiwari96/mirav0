@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* MIRAVO Brand Colors - Bamboo Sustainable Theme */
+    --background: 60 20% 98%; /* Off White #FAFAF7 */
+    --foreground: 110 19% 34%; /* Forest Green #4A6741 */
+
+    --card: 60 20% 98%;
+    --card-foreground: 110 19% 34%;
+
+    --popover: 60 20% 98%;
+    --popover-foreground: 110 19% 34%;
+
+    --primary: 110 19% 34%; /* Forest Green */
+    --primary-foreground: 60 20% 98%;
+
+    --secondary: 40 35% 84%; /* Bamboo Beige #E6DCC7 */
+    --secondary-foreground: 110 19% 34%;
+
+    --muted: 37 35% 79%; /* Warm Sand #DCCBB5 */
+    --muted-foreground: 110 19% 45%;
+
+    --accent: 103 32% 55%; /* Deep Leaf #7FAF6D */
+    --accent-foreground: 60 20% 98%;
+
+    --gold: 42 40% 64%; /* Gold Accent #C8B07C */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 20% 98%;
+
+    --border: 40 35% 88%;
+    --input: 40 35% 88%;
+    --ring: 110 19% 34%;
+
+    --radius: 0.75rem;
+
+    /* Custom Design Tokens */
+    --shadow-soft: 0 4px 20px -4px hsl(110 19% 34% / 0.08);
+    --shadow-hover: 0 8px 30px -6px hsl(110 19% 34% / 0.12);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 110 19% 20%;
+    --foreground: 60 20% 98%;
+
+    --card: 110 19% 22%;
+    --card-foreground: 60 20% 98%;
+
+    --popover: 110 19% 22%;
+    --popover-foreground: 60 20% 98%;
+
+    --primary: 103 32% 55%;
+    --primary-foreground: 110 19% 20%;
+
+    --secondary: 40 25% 30%;
+    --secondary-foreground: 60 20% 98%;
+
+    --muted: 37 25% 25%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 103 32% 55%;
+    --accent-foreground: 60 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 20% 98%;
+
+    --border: 110 19% 28%;
+    --input: 110 19% 28%;
+    --ring: 103 32% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Hero Button Variant */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium uppercase tracking-wider;
+    @apply hover:bg-accent hover:scale-105 transition-all duration-300;
+    @apply shadow-md hover:shadow-lg;
+  }
+
+  /* Product Card Hover */
+  .product-card {
+    @apply transition-all duration-300 hover:shadow-hover;
+  }
+
+  /* Smooth Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Cart shake animation */
+  .animate-cart-shake {
+    animation: cartShake 0.5s ease-in-out;
+  }
+
+  @keyframes cartShake {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+    20%, 40%, 60%, 80% { transform: rotate(5deg); }
+  }
+
+  /* Cart badge bounce animation */
+  .animate-cart-bounce {
+    animation: cartBounce 0.3s ease-out;
+  }
+
+  @keyframes cartBounce {
+    0% { transform: scale(0.5); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  /* Badge Styles */
+  .badge-eco {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium;
+    @apply bg-accent/10 text-accent border border-accent/20;
+  }
+}

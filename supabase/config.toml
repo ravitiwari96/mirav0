@@ -1,0 +1,7 @@
+project_id = "erblztrczqowbotwvquv"
+
+[functions.capture-email]
+verify_jwt = false
+
+[functions.sync-shopify-customer]
+verify_jwt = false
